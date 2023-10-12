@@ -128,4 +128,11 @@ interface ethernet0/1
  ip hello-interval eigrp 10 5
  ip hold-time eigrp 10 15
 ```
+Hardening EIGRP using passive interface. passive interface make the interface to not adventise the EIGRP. normally it is implemented in access link.
+```
+router eigrp 100
+ passive-interface default
+ no passive-interface gi0/1
+```
+
 Just that the EIGRP is configured.
