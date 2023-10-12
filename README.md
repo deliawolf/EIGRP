@@ -120,9 +120,12 @@ interface GigabitEthernet0/0
  ip authentication key-chain eigrp 100 EIGRP_AUTH
 ```
 modify the hello interval and hold-time
+
+the number "10" refers to the EIGRP autonomous system number, "5" refers to the hello interval in seconds.
+the number "10" again refers to the EIGRP autonomous system number, and "15" refers to the hold time in seconds.
 ```
-R4(config) # interface ethernet0/1
-R4(config-if)#ip hello-interval eigrp 10 5
-R4(config-if)#ip hold-time eigrp 10 15
+interface ethernet0/1
+ ip hello-interval eigrp 10 5
+ ip hold-time eigrp 10 15
 ```
 Just that the EIGRP is configured.
