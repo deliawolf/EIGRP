@@ -119,5 +119,10 @@ interface GigabitEthernet0/0
  ip authentication mode eigrp 100 md5
  ip authentication key-chain eigrp 100 EIGRP_AUTH
 ```
-
+modify the hello interval and hold-time
+```
+R4(config) # interface ethernet0/1
+R4(config-if)#ip hello-interval eigrp 10 5
+R4(config-if)#ip hold-time eigrp 10 15
+```
 Just that the EIGRP is configured.
