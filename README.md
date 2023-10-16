@@ -136,3 +136,43 @@ router eigrp 100
 ```
 
 Just that the EIGRP is configured.
+
+## EIGRP for ipv6
+
+For EIGRP for IPv6, you first have to assign IPv6 addresses to the interfaces. Here is the corrected example:
+
+Enable IPv6 routing:
+```
+Router(config)# ipv6 unicast-routing
+```
+Go into the interface configuration mode and assign an IPv6 address to the interface:
+```
+Router(config)# interface GigabitEthernet0/0
+Router(config-if)# ipv6 address 2001:DB8:0:1::1/64
+```
+Enable EIGRP on the interface:
+```
+Router(config-if)# ipv6 eigrp 100
+```
+Repeat steps 2 and 3 for each interface that you want to participate in EIGRP.
+
+Finally, enable the EIGRP routing process:
+```
+Router(config)# ipv6 router eigrp 100
+Router(config-rtr)# no shutdown
+```
+This "no shutdown" command is required to start the EIGRP process for IPv6, unlike in IPv4.
+
+Here's a full example with EIGRP AS 100, and enabling EIGRP on two interfaces:
+```
+Router(config)# ipv6 unicast-routing
+Router(config)# interface GigabitEthernet0/1
+Router(config-if)# ipv6 address 2001:DB8:0:1::1/64
+Router(config-if)# ipv6 eigrp 100
+Router(config)# interface GigabitEthernet0/2
+Router(config-if)# ipv6 address 2001:DB8:0:2::1/64
+Router(config-if)# ipv6 eigrp 100
+Router(config)# ipv6 router eigrp 100
+Router(config-rtr)# no shutdown
+```
+Remember to replace the Autonomous System (AS) number and interface names with your actual values. Also, replace the IPv6 addresses with those appropriate for your network.
