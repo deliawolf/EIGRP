@@ -176,3 +176,15 @@ Router(config)# ipv6 router eigrp 100
 Router(config-rtr)# no shutdown
 ```
 Remember to replace the Autonomous System (AS) number and interface names with your actual values. Also, replace the IPv6 addresses with those appropriate for your network.
+
+
+
+### Additional Note
+
+EIGRP Loop-Free Alternate (LFA) Fast Reroute (FRR)
+
+Split Horizon is a method where route information is prevented from being sent back in the direction it came from. By default, Split Horizon is enabled in EIGRP.
+
+Poison Reverse is a technique used to prevent routing loops by advertising 'unreachable' routes back to the source they were learned from. In EIGRP, this behavior is automatic and there isn't a specific command to enable or disable it.
+
+https://networklessons.com/cisco/ccie-routing-switching-written/eigrp-otp-over-the-top
